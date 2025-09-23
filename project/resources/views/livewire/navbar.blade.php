@@ -60,6 +60,16 @@
                     <a href="{{ route('contact') }}" wire:navigate>
                         <span class="text-base text-black font-medium">Contact</span>
                     </a>
+                    <button type="button" class="ms-2">
+                        <i class="ri-search-2-line text-black font-medium"></i>
+                    </button>
+                    <a href="" class="mx-2">
+                        <i class="ri-shopping-cart-2-line text-black font-medium"></i>
+                    </a>
+                    <a href="" class="ms-2 border px-3 py-1 rounded border-gray-300">
+                        <i class="ri-user-3-line"></i>
+                        <span class="text-base text-black font-medium">Login</span>
+                    </a>
                 </div>
             </div>
         </nav>
