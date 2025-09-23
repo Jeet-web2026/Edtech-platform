@@ -1,5 +1,5 @@
 <div>
-    <header class="fixed w-full top-0 left-0 shadow-lg">
+    <header class="fixed w-full top-0 left-0 shadow-md">
         <div role="social-activities" class="bg-[#603CF6] py-2">
             <div class="flex lg:flex-row flex-col items-center justify-between container mx-auto">
                 <div class="flex flex-row gap-3 items-center justify-start">
