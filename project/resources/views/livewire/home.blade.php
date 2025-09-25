@@ -14,5 +14,18 @@
     {{--main part--}}
 
     {{--courses part--}}
+    <section class="w-full bg-grey-400 py-8">
+        <div class="container mx-auto">
+            <div class="flex flex-row justify-between items-center">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-3xl capitalize font-semibold">our most popular courses</h2>
+                    <p class="text-base opacity-75">Our best courses</p>
+                </div>
+                <div class="flex flex-row items-center">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
     {{--courses part--}}
 </div>
