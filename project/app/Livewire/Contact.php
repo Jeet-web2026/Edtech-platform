@@ -8,8 +8,6 @@ class Contact extends Component
 {
     public function render()
     {
-        return view('livewire.contact')->layout('components.layouts.app', [
-            'title' => 'Contact Us'
-        ]);;
+        return view('livewire.contact');
     }
 }
