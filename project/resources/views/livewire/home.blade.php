@@ -21,9 +21,17 @@
                     <h2 class="text-3xl capitalize font-semibold">our most popular courses</h2>
                     <p class="text-base opacity-75">Our best courses</p>
                 </div>
-                <div class="flex flex-row items-center">
-                    
+                <div class="flex flex-row items-center gap-4">
+                    <p class="text-base me-4">Sort By</p>
+                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Language<i class="ri-arrow-down-s-line ms-3"></i></button>
+                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Topics<i class="ri-arrow-down-s-line ms-3"></i></button>
+                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Date posted<i class="ri-arrow-down-s-line ms-3"></i></button>
                 </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-4 items-center gap-4 mt-5">
+                @for ($i = 7; $i >= 0; $i--)
+                <livewire:coursecard />
+                @endfor
             </div>
         </div>
     </section>
