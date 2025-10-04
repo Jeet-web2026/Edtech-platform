@@ -53,7 +53,7 @@
 
     {{--online study explanation--}}
     <section class="w-full py-10">
-        <div class="container mx-auto flex lg:flex-row flex-col p-3">
+        <div class="container mx-auto flex lg:flex-row flex-col p-3 gap-5 overflow-hidden">
             <div class="flex flex-col gap-3 w-1/3">
                 <h2 class="text-4xl font-semibold text-[#2e1b7e]">Online learning solutions that meet your needs</h2>
                 <p class="text-[#2e1b7e] opacity-75">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, blanditiis!</p>
@@ -73,12 +73,22 @@
                         </div>
                     </div>
                     <div class="flex flex-row items-center gap-5">
-                        <span class="bg-yellow-100 py-3 px-5 rounded-full shadow-sm"><i class="ri-hand-heart-line text-yellow-900"></i></span>
+                        <span class="bg-yellow-100 py-3 px-5 rounded-full shadow-sm"><i class="ri-hand-heart-line text-yellow-900 text-lg"></i></span>
                         <div>
                             <p class="text-lg font-medium text-[#2e1b7e] capitalize">quick support</p>
                             <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="w-2/3 flex justify-center items-center relative">
+                <figure class="relative">
+                    <div class="absolute h-64 top-0 left-0 w-full h-full bg-[#00000042] rounded"></div>
+                    <img src="{{ asset('assets/images/course-img-1.jpg') }}" alt="courses-image" class="h-65 rounded">
+                    <img src="{{ asset('assets/images/course-img-2.jpg') }}" alt="courses-image" class="h-90 object-cover rounded absolute -top-10 -right-52 -z-10 opacity-75">
+                </figure>
+                <div role="card" class="absolute">
+
                 </div>
             </div>
         </div>

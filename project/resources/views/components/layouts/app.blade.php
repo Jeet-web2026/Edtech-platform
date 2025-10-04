@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') Pathshala | Educational platform</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
     {{--tailwind css cdn--}}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     {{--remix icon css cdn--}}
@@ -20,7 +21,9 @@
             font-family: "Figtree", sans-serif;
             font-optical-sizing: auto;
         }
-        html,body{
+
+        html,
+        body {
             background-color: #603cf605;
         }
     </style>
