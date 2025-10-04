@@ -20,6 +20,9 @@
             font-family: "Figtree", sans-serif;
             font-optical-sizing: auto;
         }
+        html,body{
+            background-color: #603cf605;
+        }
     </style>
 </head>
 

@@ -18,14 +18,14 @@
         <div class="container mx-auto">
             <div class="flex flex-row justify-between items-center">
                 <div class="flex flex-col gap-2">
-                    <h2 class="text-3xl capitalize font-semibold">our most popular courses</h2>
-                    <p class="text-base opacity-75">Advance your tech career with our top software development courses.</p>
+                    <h2 class="text-3xl capitalize font-semibold text-[#2e1b7e]">our most popular courses</h2>
+                    <p class="text-base text-[#2e1b7e] opacity-75">Advance your tech career with our top software development courses.</p>
                 </div>
                 <div class="flex flex-row items-center gap-4">
-                    <p class="text-base me-4">Sort By</p>
-                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Language<i class="ri-arrow-down-s-line ms-3"></i></button>
-                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Topics<i class="ri-arrow-down-s-line ms-3"></i></button>
-                    <button class="bg-gray-200 px-4 py-1.5 rounded cursor-pointer">Date posted<i class="ri-arrow-down-s-line ms-3"></i></button>
+                    <p class="text-base me-4 text-[#2e1b7e]">Sort By</p>
+                    <button class="bg-blue-100 px-4 py-1.5 rounded cursor-pointer text-[#2e1b7e]">Language<i class="ri-arrow-down-s-line ms-3"></i></button>
+                    <button class="bg-blue-100 px-4 py-1.5 rounded cursor-pointer text-[#2e1b7e]">Topics<i class="ri-arrow-down-s-line ms-3"></i></button>
+                    <button class="bg-blue-100 px-4 py-1.5 rounded cursor-pointer text-[#2e1b7e]">Date posted<i class="ri-arrow-down-s-line ms-3"></i></button>
                 </div>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-4 items-center gap-5 mt-5">
@@ -50,4 +50,38 @@
         </div>
     </section>
     {{---path finder--}}
+
+    {{--online study explanation--}}
+    <section class="w-full py-10">
+        <div class="container mx-auto flex lg:flex-row flex-col py-3">
+            <div class="flex flex-col gap-3 w-1/3">
+                <h2 class="text-4xl font-semibold text-[#2e1b7e]">Online learning solutions that meet your needs</h2>
+                <p class="text-[#2e1b7e] opacity-75">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, blanditiis!</p>
+                <div class="flex flex-col gap-5 mt-5">
+                    <div class="flex flex-row items-center gap-5">
+                        <span class="bg-green-100 py-3 px-5 rounded-full"><i class="ri-bookmark-2-line text-green-900 text-lg"></i></span>
+                        <div>
+                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">learning transperancy</p>
+                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center gap-5">
+                        <span class="bg-red-100 py-3 px-5 rounded-full"><i class="ri-magic-line text-red-900 text-lg"></i></span>
+                        <div>
+                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">original transformation</p>
+                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center gap-5">
+                        <span class="bg-yellow-100 py-3 px-5 rounded-full"><i class="ri-hand-heart-line text-yellow-900"></i></span>
+                        <div>
+                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">quick support</p>
+                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{--online study explanation--}}
 </div>
