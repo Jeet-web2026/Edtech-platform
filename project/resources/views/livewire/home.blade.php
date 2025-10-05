@@ -123,7 +123,18 @@
 
     {{--testimonials--}}
     <section class="w-full">
-
+        <div class="container mx-auto py-8 relative">
+            <h2 class="text-4xl text-[#2e1b7e] font-semibold">Testimonials</h2>
+            <p class="text-[#2e1b7e] opacity-75 mt-3">See what's our students say</p>
+            <div class="testimonials my-5">
+                @for( $i = 8; $i >= 0; $i-- )
+                <a href="#" class="p-3">
+                    <livewire:testimonialscard />
+                </a>
+                @endfor
+            </div>
+            <a href="" class="border text-[#2e1b7e] absolute right-0 top-10 p-5 py-2 rounded-sm hover:bg-[#2e1b7e] hover:text-white duration-300 transition ease-in-out">Show all testimonials<i class="ri-arrow-right-up-line ms-2"></i></a>
+        </div>
     </section>
     {{--testimonials--}}
 
