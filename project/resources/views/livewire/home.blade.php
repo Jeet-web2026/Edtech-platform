@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body .events-slide .slick-prev,
-        .slick-next {
+        .events-slide .slick-next {
             height: 30px;
             background-color: #2e1b7e;
             width: 30px;
@@ -22,7 +22,7 @@
             right: 1%;
         }
 
-        body .events-slide .slick-next:hover,
+        body .slick-next:hover,
         .slick-next:focus {
             background-color: #2e1b7e;
         }
@@ -97,10 +97,35 @@
                 </div>
                 @endfor
             </div>
-            <a href="" class="border text-[#2e1b7e] p-5 py-2 rounded-sm hover:bg-[#2e1b7e] hover:text-white duration-300 transition ease-in-out">Show all events<i class="ri-arrow-right-up-line ms-2"></i></a>
+            <div class="flex justify-center items-center">
+                <a href="" class="border text-[#2e1b7e] p-5 py-2 rounded-sm hover:bg-[#2e1b7e] hover:text-white duration-300 transition ease-in-out">Show all events<i class="ri-arrow-right-up-line ms-2"></i></a>
+            </div>
         </div>
     </section>
     {{--upcoming events--}}
+
+    {{--top categories--}}
+    <section class="w-full bg-[#2e1b7e08]">
+        <div class="container mx-auto py-8 relative">
+            <h2 class="text-4xl text-[#2e1b7e] font-semibold">Top categories</h2>
+            <p class="text-[#2e1b7e] opacity-75 mt-3">Explore our top category courses for your career</p>
+            <div class="top-categories my-5">
+                @for( $i = 8; $i >= 0; $i-- )
+                <a href="#" class="p-3">
+                    <livewire:topcategories />
+                </a>
+                @endfor
+            </div>
+            <a href="" class="border text-[#2e1b7e] absolute right-0 top-10 p-5 py-2 rounded-sm hover:bg-[#2e1b7e] hover:text-white duration-300 transition ease-in-out">Show all categories<i class="ri-arrow-right-up-line ms-2"></i></a>
+        </div>
+    </section>
+    {{--top categories--}}
+
+    {{--testimonials--}}
+    <section class="w-full">
+
+    </section>
+    {{--testimonials--}}
 
     @section('extrajs')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -111,6 +136,41 @@
                 infinite: true,
                 speed: 300,
                 slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.top-categories').slick({
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                autoplayspeed: 1000,
+                speed: 300,
+                arrows: false,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 responsive: [{
                         breakpoint: 1024,
