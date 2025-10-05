@@ -1,4 +1,34 @@
 <div>
+    @section('extrascss')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body .events-slide .slick-prev,
+        .slick-next {
+            height: 30px;
+            background-color: #2e1b7e;
+            width: 30px;
+            position: absolute;
+            border-radius: 5px;
+        }
+
+        body .events-slide .slick-prev {
+            top: -22%;
+            left: 94%;
+        }
+
+        body .events-slide .slick-next {
+            top: -22%;
+            right: 1%;
+        }
+
+        body .events-slide .slick-next:hover,
+        .slick-next:focus {
+            background-color: #2e1b7e;
+        }
+    </style>
+    @endsection
+
     {{--main part--}}
     <main class="w-full bg-[url('{{ asset('assets/images/bg-img.jpg') }}')] bg-cover relative flex justify-center items-center">
         <div class="absolute h-full w-full top-0 left-0 bg-[#000000b3] z-10"></div>
@@ -51,47 +81,63 @@
     </section>
     {{---path finder--}}
 
-    {{--online study explanation--}}
-    <section class="w-full py-10">
-        <div class="container mx-auto flex lg:flex-row flex-col p-3 gap-5 overflow-hidden">
-            <div class="flex flex-col gap-3 w-1/3">
-                <h2 class="text-4xl font-semibold text-[#2e1b7e]">Online learning solutions that meet your needs</h2>
-                <p class="text-[#2e1b7e] opacity-75">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, blanditiis!</p>
-                <div class="flex flex-col gap-5 mt-5">
-                    <div class="flex flex-row items-center gap-5">
-                        <span class="bg-green-100 py-3 px-5 rounded-full shadow-sm"><i class="ri-bookmark-2-line text-green-900 text-lg"></i></span>
-                        <div>
-                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">learning transperancy</p>
-                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center gap-5">
-                        <span class="bg-red-100 py-3 px-5 rounded-full shadow-sm"><i class="ri-magic-line text-red-900 text-lg"></i></span>
-                        <div>
-                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">original transformation</p>
-                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center gap-5">
-                        <span class="bg-yellow-100 py-3 px-5 rounded-full shadow-sm"><i class="ri-hand-heart-line text-yellow-900 text-lg"></i></span>
-                        <div>
-                            <p class="text-lg font-medium text-[#2e1b7e] capitalize">quick support</p>
-                            <p class="text-sm text-[#2e1b7e] opacity-60 truncate w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
+    {{--upcoming events--}}
+    <section class="w-full">
+        <div class="container mx-auto py-8">
+            <div class="flex flex-col lg:flex-row">
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-4xl font-semibold text-[#2e1b7e]">Upcoming events</h2>
+                    <p class="text-[#2e1b7e] opacity-75">Stay updated for our upcoming events</p>
                 </div>
             </div>
-            <div class="w-2/3 flex justify-center items-center relative">
-                <figure class="relative">
-                    <div class="absolute h-64 top-0 left-0 w-full h-full bg-[#00000042] rounded"></div>
-                    <img src="{{ asset('assets/images/course-img-1.jpg') }}" alt="courses-image" class="h-65 rounded">
-                    <img src="{{ asset('assets/images/course-img-2.jpg') }}" alt="courses-image" class="h-90 object-cover rounded absolute -top-10 -right-52 -z-10 opacity-75">
-                </figure>
-                <div role="card" class="absolute">
-
+            <div class="events-slide mt-5">
+                @for( $i = 7; $i >= 0; $i-- )
+                <div class="px-3 pb-18">
+                    <livewire:eventscard />
                 </div>
+                @endfor
             </div>
+            <a href="" class="border text-[#2e1b7e] p-5 py-2 rounded-sm hover:bg-[#2e1b7e] hover:text-white duration-300 transition ease-in-out">Show all events<i class="ri-arrow-right-up-line ms-2"></i></a>
         </div>
     </section>
-    {{--online study explanation--}}
+    {{--upcoming events--}}
+
+    @section('extrajs')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $('.events-slide').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    @endsection
 </div>
