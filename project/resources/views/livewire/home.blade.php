@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body .events-slide .slick-prev,
-        .events-slide .slick-next {
+        body .slick-prev,
+        .slick-next {
             height: 30px;
             background-color: #2e1b7e;
             width: 30px;
@@ -23,8 +23,18 @@
         }
 
         body .slick-next:hover,
-        .slick-next:focus {
+        .slick-next:focus,
+        .slick-prev:hover,
+        .slick-prev:focus {
             background-color: #2e1b7e;
+        }
+
+        body .top-categories .slick-current .bg-white{
+            background-color: #2e1b7e;
+        }
+
+        body .top-categories .slick-current h5{
+            color: #ffffff;
         }
     </style>
     @endsection
@@ -214,6 +224,8 @@
                 infinite: true,
                 speed: 300,
                 arrows: false,
+                autoplay: true,
+                autoplayspeed: 3000,
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 responsive: [{
