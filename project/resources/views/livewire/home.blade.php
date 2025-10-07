@@ -29,11 +29,11 @@
             background-color: #2e1b7e;
         }
 
-        body .top-categories .slick-current .bg-white{
+        body .top-categories .slick-current .bg-white {
             background-color: #2e1b7e;
         }
 
-        body .top-categories .slick-current h5{
+        body .top-categories .slick-current h5 {
             color: #ffffff;
         }
     </style>
@@ -147,6 +147,14 @@
         </div>
     </section>
     {{--testimonials--}}
+
+    {{--tireupcompanies--}}
+    <section class="w-full">
+        <div class="container mx-auto">
+            <livewire:tierupcompanies />
+        </div>
+    </section>
+    {{--tireupcompanies--}}
 
     @section('extrajs')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
