@@ -122,7 +122,7 @@
     {{--top categories--}}
 
     {{--testimonials--}}
-    <section class="w-full">
+    <section class="w-full bg-[#2299dd00]">
         <div class="container mx-auto py-8 relative">
             <h2 class="text-4xl text-[#2e1b7e] font-semibold">Testimonials</h2>
             <p class="text-[#2e1b7e] opacity-75 mt-3">See what's our students say</p>
@@ -196,6 +196,39 @@
                         breakpoint: 600,
                         settings: {
                             slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.testimonials').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                arrows: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
                             slidesToScroll: 1
                         }
                     },
