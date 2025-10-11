@@ -14,6 +14,9 @@
                 </div>
                 <div class="flex flex-row gap-2">
                     <a href="">
+                        <i class="ri-linkedin-line text-white text-base"></i>
+                    </a>
+                    <a href="">
                         <i class="ri-facebook-circle-line text-white text-base"></i>
                     </a>
                     <a href="">
@@ -37,9 +40,8 @@
         </div>
         <nav role="navigation" class="py-4">
             <div class="flex flex-col lg:flex-row items-center justify-between container mx-auto">
-                <a href="/" wire:navigate class="flex flex-row items-center gap-1">
-                    <span class="bg-[#603CF6] text-2xl shadow-sm px-3 rounded text-white">P</span>
-                    <h2 class="capitalize text-2xl font-medium text-white">pathshala</h2>
+                <a href="/" wire:navigate class="flex flex-row items-center gap-3">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="website_logo" class="h-15">
                 </a>
                 <div role="navigation" class="flex lg:flex-row flex-col items-center gap-2.5">
                     <div class="flex items-center gap-1 flex-row cursor-pointer">
