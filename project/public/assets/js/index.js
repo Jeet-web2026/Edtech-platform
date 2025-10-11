@@ -25,12 +25,18 @@ $(document).ready(function () {
 
     for (let index = 0; index < navItem.length; index++) {
         $(navItem[index]).on("click", function () {
+            const $targetTabs = $(
+                `.nav-items-submenus-tab:eq(${index}), .nav-items-submenus:eq(${index})`
+            );
+            const isOpen = !$targetTabs.first().hasClass("hidden");
+
             $(".nav-items-submenus-tab, .nav-items-submenus").addClass(
                 "hidden"
             );
-            $(
-                `.nav-items-submenus-tab:eq(${index}), .nav-items-submenus:eq(${index})`
-            ).removeClass("hidden");
+
+            if (!isOpen) {
+                $targetTabs.removeClass("hidden");
+            }
         });
     }
 });
