@@ -67,4 +67,12 @@
             <p class="text-white text-sm font-medium">© 2025 - {{ date('Y') }} Pathshala. All rights reserved.</p>
         </div>
     </div>
+    <div role="navigation" class="navigation">
+        <button class="fixed bottom-5 left-5 bg-[#603CF6] shadow-lg text-white px-3 py-2 cursor-pointer rounded-full shadow-lg hover:bg-white hover:text-[#603CF6] transition-all duration-300 z-50">
+            <i class="ri-chat-smile-2-line text-3xl"></i>
+        </button>
+        <button class="fixed bottom-5 right-5 hover:border hidden top-direction border-[#603CF6] border bg-[#603CF6] shadow-lg text-white px-3 py-2 cursor-pointer rounded-full shadow-lg hover:bg-white hover:text-[#603CF6] transition-all duration-300 z-50">
+            <i class="ri-skip-up-line text-3xl"></i>
+        </button>
+    </div>
 </div>

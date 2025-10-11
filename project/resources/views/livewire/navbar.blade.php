@@ -38,13 +38,13 @@
                 </div>
             </div>
         </div>
-        <nav role="navigation" class="py-4">
+        <nav role="navigation" class="py-4 relative">
             <div class="flex flex-col lg:flex-row items-center justify-between container mx-auto">
                 <a href="/" wire:navigate class="flex flex-row items-center gap-3">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="website_logo" class="h-15">
                 </a>
-                <div role="navigation" class="flex lg:flex-row flex-col items-center gap-2.5">
-                    <div class="flex items-center gap-1 flex-row cursor-pointer">
+                <div role="navigation" class="flex lg:flex-row flex-col items-center gap-2.5 nav-items">
+                    <div class="flex items-center gap-1 flex-row cursor-pointer" id="courses">
                         <span class="text-base text-white font-medium">Courses</span>
                         <i class="ri-arrow-down-s-line text-lg font-medium text-white"></i>
                     </div>
@@ -72,6 +72,32 @@
                         <i class="ri-user-3-line text-white"></i>
                         <span class="text-base text-white font-medium">Login</span>
                     </a>
+                </div>
+                <div class="absolute left-0 top-23 w-full">
+                    <div class="container mx-auto bg-white h-55 p-5 rounded-b-md nav-items-submenus-tab hidden">
+                        <div class="nav-items-submenus hidden" id="courses">
+                            <div class="flex lg:flex-row flex-col gap-3">
+                                <div class="w-1/4 overflow-hidden">
+                                    <img src="{{ asset('assets/images/course-img-1.jpg') }}" alt="web-development-course" class="h-45 w-full object-cover rounded shadow-md object-top">
+                                </div>
+                                <div class="w-3/4 border-l border-gray-300 px-3 h-45 overflow-x-auto">
+                                    <div class="grid grid-cols-3">
+                                        <div class="flex flex-col gap-2.5">
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>software development courses</a>
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>web development courses</a>
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>digital marketing</a>
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>AI/ML courses</a>
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>Automation engineering</a>
+                                        </div>
+                                        <div class="flex flex-col gap-2.5">
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>Frontend development</a>
+                                            <a href="" class="text-[#2E1B7E] capitalize text-base font-medium flex items-center"><i class="ri-book-open-line me-2 text-lg"></i>backend development</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>

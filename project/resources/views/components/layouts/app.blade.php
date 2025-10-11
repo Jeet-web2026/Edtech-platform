@@ -26,6 +26,7 @@
         html,
         body {
             background-color: #603cf605;
+            scroll-behavior: smooth;
         }
     </style>
 </head>
