@@ -6,7 +6,8 @@
     <main class="h-screen w-full bg-[#603cf61c]">
         <div class="container mx-auto h-full flex justify-center flex-col items-center gap-8 relative">
             <a href="{{ route('signup') }}" wire:navigate class="absolute top-8 left-0 px-4 py-2 bg-blue-900 rounded shadow text-white"><i class="ri-arrow-left-long-line text-white me-1"></i>Back</a>
-            <form action="">
+            <form wire:submit method="post">
+                @csrf
                 <div class="shadow p-8 bg-white rounded border border-gray-200">
                     <h2 class="uppercase text-2xl bg-gray-500 text-white py-3 font-semibold text-center mb-8 border rounded">Signin</h2>
                     <div class="flex justify-center items-center gap-2 mb-5">
@@ -19,11 +20,17 @@
                     </div>
                     <div class="mb-3">
                         <p class="text-lg text-black font-medium">Email Id</p>
-                        <input type="email" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full">
+                        <input type="email" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" name="email" value="{{ old('email') }}">
+                        @error('email')
+                        <span class="text-red-800">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-8">
                         <p class="text-lg text-black font-medium">Password</p>
-                        <input type="password" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full">
+                        <input type="password" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" name="password">
+                        @error('password')
+                        <span class="text-red-800">{{ $message }}</span>
+                        @enderror
                     </div>
                     <button type="submit" class="w-full py-2.5 text-lg bg-blue-800 cursor-pointer text-white rounded">Submit</button>
                 </div>
