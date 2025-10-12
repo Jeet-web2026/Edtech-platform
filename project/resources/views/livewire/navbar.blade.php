@@ -44,7 +44,7 @@
                     <img src="{{ asset('assets/images/logo.png') }}" alt="website_logo" class="h-15">
                 </a>
                 <div role="navigation" class="flex lg:flex-row flex-col items-center gap-2.5 nav-items">
-                    <div class="flex items-center gap-1 flex-row cursor-pointer" id="courses">
+                    <div class="flex items-center gap-1 flex-row cursor-pointer">
                         <span class="text-base text-white font-medium">Courses</span>
                         <i class="ri-arrow-down-s-line text-lg font-medium text-white"></i>
                     </div>
@@ -68,9 +68,9 @@
                     <a href="" class="mx-2">
                         <i class="ri-shopping-cart-2-line text-white font-medium"></i>
                     </a>
-                    <a href="" class="ms-2 border px-3 py-1 rounded border-gray-300">
+                    <a href="{{ route('signup') }}" wire:navigate class="ms-2 border px-3 py-1 rounded border-gray-300">
                         <i class="ri-user-3-line text-white"></i>
-                        <span class="text-base text-white font-medium">Login</span>
+                        <span class="text-base text-white font-medium">Signin</span>
                     </a>
                 </div>
                 <div class="absolute left-0 top-23 w-full">
