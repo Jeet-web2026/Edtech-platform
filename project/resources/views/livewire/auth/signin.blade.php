@@ -10,6 +10,11 @@
                 @csrf
                 <div class="shadow p-8 bg-white rounded border border-gray-200">
                     <h2 class="uppercase text-2xl bg-gray-500 text-white py-3 font-semibold text-center mb-8 border rounded">Signin</h2>
+                    @if(session()->has('success'))
+                    <div class="bg-green-200 text-green-800 px-4 py-2 rounded mb-4 font-medium text-sm">
+                        <i class="ri-checkbox-circle-line me-1 text-base"></i>{{ session('success') }}
+                    </div>
+                    @endif
                     <div class="flex justify-center items-center gap-2 mb-5">
                         <a href="" class="text-red-800 font-medium text-2xl flex items-center gap-2 border border-gray-300 px-2 rounded-full">
                             <i class="ri-google-line"></i><span class="text-sm text-black font-medium">Signin with Google</span>
