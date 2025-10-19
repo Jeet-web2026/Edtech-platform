@@ -17,7 +17,7 @@
                     @endif
 
                     @if(session()->has('error'))
-                    <div class="bg-green-200 text-red-800 px-4 py-2 rounded mb-4 font-medium text-sm">
+                    <div class="bg-red-200 text-red-800 px-4 py-2 rounded mb-4 font-medium text-sm">
                         <i class="ri-close-line me-1 text-base"></i>{{ session('error') }}
                     </div>
                     @endif
@@ -31,14 +31,14 @@
                     </div>
                     <div class="mb-3">
                         <p class="text-lg text-black font-medium">Email Id</p>
-                        <input type="email" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" wire:model="email" value="{{ old('email') }}">
+                        <input type="email" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" wire:model.blur="email" value="{{ old('email') }}">
                         @error('email')
                         <span class="text-red-800 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-8">
                         <p class="text-lg text-black font-medium">Password</p>
-                        <input type="password" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" wire:model="password">
+                        <input type="password" class="border py-1.5 rounded border-gray-400 outline-none px-2 w-full" wire:model.blur="password">
                         @error('password')
                         <span class="text-red-800 text-sm">{{ $message }}</span>
                         @enderror

@@ -68,10 +68,18 @@
                     <a href="" class="mx-2">
                         <i class="ri-shopping-cart-2-line text-white font-medium"></i>
                     </a>
+                    @guest
                     <a href="{{ route('signup') }}" wire:navigate class="ms-2 border px-3 py-1 rounded border-gray-300">
                         <i class="ri-user-3-line text-white"></i>
-                        <span class="text-base text-white font-medium">Signin</span>
+                        <span class="text-base text-white font-medium">Signup</span>
                     </a>
+                    @endguest
+                    @auth
+                    <a href="{{ route('logout') }}" wire:navigate class="ms-2 border px-3 py-1 rounded border-gray-300">
+                        <i class="ri-shut-down-line text-white"></i>
+                        <span class="text-base text-white font-medium">Signout</span>
+                    </a>
+                    @endauth
                 </div>
                 <div class="absolute left-0 top-23 w-full">
                     <div class="container mx-auto bg-white h-55 p-5 rounded-b-md nav-items-submenus-tab hidden">

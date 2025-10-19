@@ -49,7 +49,7 @@
                         </span>
                         Submit
                     </button>
-                    <p class="text-center mt-3">Already have an account? <a href="{{ route('signin') }}" wire:navigate class="text-blue-700">Signin here</a></p>
+                    <p class="text-center mt-3">Already have an account? <a href="{{ route('login') }}" wire:navigate class="text-blue-700">Signin here</a></p>
                 </div>
             </form>
         </div>

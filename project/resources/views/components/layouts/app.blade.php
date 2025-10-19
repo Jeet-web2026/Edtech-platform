@@ -32,12 +32,17 @@
     </style>
 </head>
 
-<body>
+<body class="relative">
     @php
-    $hiddenRoutes = ['dashboard', 'signin', 'signup'];
+    $hiddenRoutes = ['dashboard', 'login', 'signup'];
     @endphp
     @if(!in_array(request()->route()->getName(), $hiddenRoutes))
     <livewire:navbar />
+    @endif
+    @if(session()->has('success'))
+    <div class="bg-green-200 text-green-800 px-4 py-2 rounded mb-4 font-medium text-sm fixed top-35 z-50 right-5">
+        <i class="ri-checkbox-circle-line me-1 text-base"></i>{{ session('success') }}
+    </div>
     @endif
     {{ $slot }}
     @if(!in_array(request()->route()->getName(), $hiddenRoutes))
