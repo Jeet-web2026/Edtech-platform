@@ -25,11 +25,13 @@
                             <input type="text" class="bg-white outline-none px-2.5 py-1.5 rounded placeholder:text-gray-500" placeholder="Search...">
                             <button class="px-2.5 py-1.5 bg-green-700 rounded cursor-pointer"><i class="ri-search-2-line text-white"></i></button>
                         </div>
-                        @livewire('dashboard.maincontent')
-                        <div class="bg-gray-200 w-full absolute bottom-15 left-0 py-3">
-                            <p class="text-center capitalize text-sm text-gray-800"><i class="ri-copyright-line"></i>PathShala | All rights reserved</p>
-                        </div>
                     </nav>
+                    <div>
+                        @livewire('dashboard.maincontent')
+                    </div>
+                    <div class="bg-gray-200 w-full absolute bottom-0 left-0 py-3">
+                        <p class="text-center capitalize text-sm text-gray-800"><i class="ri-copyright-line"></i>PathShala | All rights reserved</p>
+                    </div>
                 </div>
             </div>
         </div>

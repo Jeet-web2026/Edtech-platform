@@ -1,5 +1,5 @@
 <div>
-    <main class="pt-5 bg-gray-50 h-screen w-full px-4">
+    <main class="pt-20 bg-gray-50 h-screen w-full px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
             <div class="shadow p-5 border border-gray-200 grid grid-cols-1 lg:grid-cols-2 rounded-lg gap-3 bg-yellow-50">
                 @if(Auth::user()->type == 'superadmin')
