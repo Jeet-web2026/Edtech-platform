@@ -40,4 +40,8 @@ $(document).ready(function () {
             }
         });
     }
+
+    setTimeout(() => {
+        $(this).find(".success-popup").fadeOut();
+    }, 2500);
 });

@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Dashboard;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Maincontent extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.maincontent');
+        $adminCount = User::where('type', 'admin')->count();
+        return view('livewire.dashboard.maincontent', compact('adminCount'));
     }
 }

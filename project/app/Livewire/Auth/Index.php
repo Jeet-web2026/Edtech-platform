@@ -32,7 +32,7 @@ class Index extends Component
 
         $this->reset(['firstname', 'lastname', 'email']);
         session()->flash('success', "Account created successfully! Login to continue.");
-        $this->redirectRoute('signin');
+        $this->redirectRoute('login');
     }
     public function render()
     {
