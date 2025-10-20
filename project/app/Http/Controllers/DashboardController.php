@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class DashboardController extends Controller
 {
@@ -40,6 +41,19 @@ class DashboardController extends Controller
 
             default:
                 return view('dashboard.default');
+                break;
+        }
+    }
+
+    public function ManageAction(string $type): RedirectResponse
+    {
+        switch ($type) {
+            case 'delete':
+                return back()->with('success', 'Deleted successfully!');
+                break;
+            
+            default:
+                return back()->with('error', 'Something went wrong!');
                 break;
         }
     }

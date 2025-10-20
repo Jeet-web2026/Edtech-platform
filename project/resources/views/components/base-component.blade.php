@@ -42,6 +42,11 @@
             <i class="ri-error-warning-line me-1 text-2xl"></i>{{ session('error') }}
         </div>
         @endif
+        @if(session()->has('success'))
+        <div class="bg-green-200 text-green-800 px-4 py-2 h-40 w-100 text-center flex justify-center items-center rounded mb-4 font-medium text-xl fixed top-[40%] z-50 left-[35%] success-popup">
+            <i class="ri-checkbox-circle-line me-1 text-2xl"></i>{{ session('success') }}
+        </div>
+        @endif
         <div class="w-full h-full min-h-screen">
             <div class="flex flex-col lg:flex-row w-full min-h-screen">
                 <div class="w-full lg:w-1/6 bg-white shadow-md min-h-screen border-r border-gray-100">
@@ -74,6 +79,8 @@
     {{--bootstrap js cdn--}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     @endif
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('assets/js/index.js') }}"></script>
 </body>
 
 </html>
