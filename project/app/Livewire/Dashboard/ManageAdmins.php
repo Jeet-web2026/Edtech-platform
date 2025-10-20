@@ -8,6 +8,6 @@ class ManageAdmins extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.manageadmins');
+        return view('livewire.dashboard.index');
     }
 }
