@@ -45,13 +45,18 @@ class DashboardController extends Controller
         }
     }
 
-    public function ManageAction(string $type): RedirectResponse
+    public function ManageAction(string $type, int $userId): RedirectResponse
     {
         switch ($type) {
             case 'delete':
-                return back()->with('success', 'Deleted successfully!');
+                $user = User::findOrFail($userId);
+                if (!empty($user)) {
+                    $user->delete();
+                    return back()->with('success', 'Data deleted successfully!');
+                }
+                return back()->with('error', 'Data not found!');
                 break;
-            
+
             default:
                 return back()->with('error', 'Something went wrong!');
                 break;

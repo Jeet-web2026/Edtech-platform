@@ -50,7 +50,7 @@
                         <a href="#" class="text-base border rounded p-1 px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:bg-yellow-600 hover:text-white transition duration-300">
                             <i class="ri-error-warning-line"></i>
                         </a>
-                        <a href="{{ route('action', 'delete') }}" wire:submit class="text-base border rounded p-1 px-2 font-medium text-red-600 dark:text-red-500 hover:bg-red-600 hover:text-white transition duration-300">
+                        <a href="{{ route('action', ['type' => 'delete', 'userId' => $admin->id]) }}" class="text-base border rounded p-1 px-2 font-medium text-red-600 dark:text-red-500 hover:bg-red-600 hover:text-white transition duration-300">
                             <i class="ri-delete-bin-5-line"></i>
                         </a>
                     </td>
