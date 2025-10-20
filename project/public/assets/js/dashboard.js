@@ -155,12 +155,12 @@ $(document).ready(function () {
     var options1 = {
         animationEnabled: true,
         title: {
-            text: "Chart inside a jQuery Resizable Element",
+            text: "Course Wise enrollments",
         },
         data: [
             {
-                type: "column", //change it to line, area, bar, pie, etc
-                legendText: "Try Resizing with the handle to the bottom right",
+                type: "column",
+                legendText: "Last six months data course enrollment wise",
                 showInLegend: true,
                 dataPoints: [
                     {
@@ -183,12 +183,6 @@ $(document).ready(function () {
                     },
                     {
                         y: 26,
-                    },
-                    {
-                        y: 10,
-                    },
-                    {
-                        y: 22,
                     },
                 ],
             },

@@ -3,6 +3,11 @@
     Dashboard |
     @endsection
     <main class="w-full bg-white h-full">
+        @if(session()->has('error'))
+        <div class="bg-red-200 text-red-800 px-4 py-2 h-40 w-100 text-center flex justify-center items-center rounded mb-4 font-medium text-xl fixed top-[40%] z-50 left-[35%] error-popup">
+            <i class="ri-error-warning-line me-1 text-2xl"></i>{{ session('error') }}
+        </div>
+        @endif
         <div class="w-full h-full min-h-screen">
             <div class="flex flex-col lg:flex-row w-full min-h-screen">
                 <div class="w-full lg:w-1/6 bg-white shadow-md min-h-screen border-r border-gray-100">

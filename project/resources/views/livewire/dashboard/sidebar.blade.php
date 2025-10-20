@@ -1,20 +1,20 @@
 <div>
     <div class="flex flex-row justify-center items-center bg-blue-800 py-3">
-        <a wire:navigate href="{{ route('dashboard', request()->segment(3)) }}">
+        <a wire:navigate href="{{ route('dashboard', Auth::user()->type) }}">
             <img src="{{ asset('assets/images/demoadmin-image.jpg') }}" alt="demo-dashboard-user-image" loading="lazy" class="my-2 h-25 shadow rounded-full bg-white">
         </a>
     </div>
     <nav role="navigation" class="pb-5">
         <ul>
             <li class="w-full">
-                <a href="{{ route('dashboard', request()->segment(3)) }}" wire:navigate class="p-3 text-base font-medium bg-blue-500 text-white w-full flex flex-row items-center gap-2 border-b border-white">
+                <a href="{{ route('dashboard', Auth::user()->type) }}" wire:navigate class="p-3 text-base font-medium bg-blue-500 text-white w-full flex flex-row items-center gap-2 border-b border-white">
                     <i class="ri-apps-line text-lg"></i>
                     Dashboard
                 </a>
             </li>
             @if(Auth::user()->type === 'superadmin')
             <li class="w-full">
-                <a href="{{ route('dashboard', request()->segment(3)) }}" wire:navigate class="p-3 text-base font-medium bg-blue-50 text-blue-800 w-full flex flex-row items-center gap-2 border-b border-white">
+                <a href="{{ route('manage-admins') }}" wire:navigate class="p-3 text-base font-medium bg-blue-50 text-blue-800 w-full flex flex-row items-center gap-2 border-b border-white">
                     <i class="ri-map-pin-user-line text-lg"></i>
                     Manage admins
                 </a>
@@ -22,7 +22,7 @@
             @endif
             @if(Auth::user()->type !== 'user')
             <li class="w-full">
-                <a href="{{ route('dashboard', request()->segment(3)) }}" wire:navigate class="p-3 text-base font-medium bg-blue-50 text-blue-800 w-full flex flex-row items-center gap-2 border-b border-white">
+                <a href="{{ route('manage-admins') }}" wire:navigate class="p-3 text-base font-medium bg-blue-50 text-blue-800 w-full flex flex-row items-center gap-2 border-b border-white">
                     <i class="ri-user-line text-lg"></i>
                     Manage students
                 </a>
