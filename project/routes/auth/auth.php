@@ -23,3 +23,5 @@ Route::prefix('authenticated')->middleware('auth', 'throttle:15,1')->group(funct
     });
     Route::get('signout', [AuthController::class, 'logout'])->name('logout');
 });
+
+require __DIR__ . '/dashboardactions.php';

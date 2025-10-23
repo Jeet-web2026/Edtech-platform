@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function ManageDashboard(string $type): View
+    public function ManageDashboard(string $type): View|RedirectResponse
     {
         switch ($type) {
             case 'admins':
@@ -78,6 +78,9 @@ class DashboardController extends Controller
         switch ($addType) {
             case 'admin':
                 return view('dashboard.add-admin', compact('userId'));
+                break;
+            case 'student':
+                return view('dashboard.add-student', compact('userId'));
                 break;
 
             default:
