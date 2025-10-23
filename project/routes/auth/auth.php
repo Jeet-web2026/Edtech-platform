@@ -18,6 +18,7 @@ Route::prefix('authenticated')->middleware('auth', 'throttle:15,1')->group(funct
         Route::controller(DashboardController::class)->group(function () {
             Route::get('/{type}', 'ManageDashboard')->name('manage');
             Route::get('action/{type}/{userId}', 'ManageAction')->name('action');
+            Route::get('add/{userId}/{addType}', 'ManageAdd')->name('add');
         });
     });
     Route::get('signout', [AuthController::class, 'logout'])->name('logout');

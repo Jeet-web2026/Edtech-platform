@@ -1,7 +1,7 @@
 <x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Admins">
     <div class="relative overflow-x-auto">
         <div class="flex justify-end items-end mb-3">
-            <a href="" class="py-2 px-4 bg-blue-700 text-white rounded">
+            <a href="{{ route('action', ['type' => 'add', 'userId' => Auth::id(), 'addType' => 'admin']) }}" wire:navigate class="py-2 px-4 bg-blue-700 text-white rounded">
                 <i class="ri-add-circle-line me-1"></i>Add new
             </a>
         </div>
@@ -47,7 +47,7 @@
                         <a href="#" class="text-base border rounded p-1 px-2 font-medium text-blue-600 dark:text-blue-500 hover:bg-blue-600 hover:text-white transition duration-300">
                             <i class="ri-edit-line"></i>
                         </a>
-                        <a href="#" class="text-base border rounded p-1 px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:bg-yellow-600 hover:text-white transition duration-300">
+                        <a href="" class="text-base border rounded p-1 px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:bg-yellow-600 hover:text-white transition duration-300">
                             <i class="ri-error-warning-line"></i>
                         </a>
                         <a href="{{ route('action', ['type' => 'delete', 'userId' => $admin->id]) }}" class="text-base border rounded p-1 px-2 font-medium text-red-600 dark:text-red-500 hover:bg-red-600 hover:text-white transition duration-300">
