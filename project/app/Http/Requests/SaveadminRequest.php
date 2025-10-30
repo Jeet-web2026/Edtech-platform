@@ -35,4 +35,30 @@ class SaveadminRequest extends FormRequest
             'address' => 'required'
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Name is required!',
+            'name.min' => 'Name should be three characters long!',
+            'email' => 'Email is required!',
+            'email.email' => 'Please provide a valid email address.',
+            'mob.required' => 'Mobile number is required!',
+            'mob.numeric' => 'Mobile number should be in numeric format',
+            'mob.digits' => 'Mobile number should be 10 digits long!',
+            'aadhaar.required' => 'Aadhaar number is required!',
+            'aadhaar.digits' => 'Aadhaar number should be 12 characters long!',
+            'profile.required' => 'Profile picture is required!',
+            'profile.mimes' => 'Profile picture should be in jpg, jpeg, png format',
+            'profile.image' => 'Profile picture is nor a valid image.',
+            'password.required' => 'Password is required!',
+            'valid_from.required' => 'Validity start date is required!',
+            'valid_from.date' => 'Validity start date is not a valid date format.',
+            'valid_to.required' => 'Validity end date is required!',
+            'valid_to.date' =>  'Validity end date is not a valid date format.',
+            'valid_to.after' => 'Validity end date should be after of start date.',
+            'parent_id.required' => 'Something went wrong!',
+            'address.required' => 'Address is required.'
+        ];
+    }
 }
