@@ -7,4 +7,7 @@
         @if($type) type="{{ $type }}" @endif
         @if($name) name="{{ $name }}" id="{{ $name }}" @endif
         class="border outline-none px-2 py-1 rounded @if($class) {{ $class }} @endif">
+        @error($name)
+        <span class="text-red-600">{{ $message }}</span>
+        @enderror
 </div>

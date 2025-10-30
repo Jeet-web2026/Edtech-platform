@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveadminRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -87,5 +88,10 @@ class DashboardController extends Controller
                 return back()->with('error', 'Something went wrong!');
                 break;
         }
+    }
+
+    public function AddAdmin(SaveadminRequest $request)
+    {
+        
     }
 }
