@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -90,8 +92,52 @@ class DashboardController extends Controller
         }
     }
 
-    public function AddAdmin(SaveadminRequest $request)
+    public function AddAdmin(SaveadminRequest $request): RedirectResponse
     {
-        
+        DB::transaction();
+        try {
+            User::create([
+                'first_name' => $this->getFirstName($request),
+                'last_name' => $this->getLastName($request),
+                'password' => bcrypt($request->input('password')),
+                'role' => 'admin',
+            ]);
+
+            DB::commit();
+
+            return back()->with('success', 'Admin created successfully!');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            Log::error('Admin creation failed', [
+                'error' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+            ]);
+
+            return back()->with('error', 'Something went wrong while creating admin.');
+        }
+    }
+
+    protected function uploadProfile($request): ?string
+    {
+        if ($request->hasFile('profile')) {
+            return $request->file('profile')->store('profiles', 'public');
+        }
+        return null;
+    }
+
+    protected function getFirstName($request): string
+    {
+        $fullName = trim($request->input('name'));
+        $parts = preg_split('/\s+/', $fullName);
+
+        return $parts[0] ?? '';
+    }
+
+    protected function getLastName($request): string
+    {
+        $fullName = trim($request->input('name'));
+        $parts = preg_split('/\s+/', $fullName);
+
+        return count($parts) > 1 ? implode(' ', array_slice($parts, 1)) : '';
     }
 }
