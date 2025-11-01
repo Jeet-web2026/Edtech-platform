@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditadminRequest;
 use App\Http\Requests\SaveadminRequest;
+use App\Http\Requests\StartenrollmentRequest;
 use App\Models\Admindetail;
+use App\Models\StudentDetail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -168,6 +171,60 @@ class DashboardController extends Controller
             default:
                 return back()->with('error', 'Something went wrong!');
                 break;
+        }
+    }
+
+    public function EditAdmin(int $id): View|RedirectResponse
+    {
+        $admin = User::with('adminDetails')->find($id);
+        if (!empty($admin) && $admin->role === 'admin') {
+            return view('dashboard.edit-admin', compact('admin'));
+        }
+        return back()->with('error', 'Admin not found!');
+    }
+
+    public function updateAdmin(EditadminRequest $request, int $userid, int $adminid): RedirectResponse
+    {
+        try {
+            User::where('id', $userid)->update([
+                'first_name' => $request->input('first_name'),
+                'last_name' => $request->input('last_name'),
+                'email' => $request->input('email'),
+            ]);
+            Admindetail::where('id', $adminid)->update([
+                'aadhaar' => $request->input('aadhaar'),
+                'mob' => $request->input('mob'),
+                'valid_from' => $request->input('valid_from'),
+                'valid_to' => $request->input('valid_to'),
+                'address' => $request->input('address')
+            ]);
+            return back()->with('success', 'Data updated successfully!');
+        } catch (\Throwable $th) {
+            Log::error('Admin creation failed', [
+                'error' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+            ]);
+            return back()->with('error', 'Something went wrong!');
+        }
+    }
+
+    public function EnrollmentStart(StartenrollmentRequest $request): View|RedirectResponse
+    {
+        try {
+            $user = User::create([
+                'first_name' => $request->input('first_name'),
+                'last_name' => $request->input('last_name'),
+                'email' => $request->input('email'),
+                'password' => $request->input('mob'),
+                'is_active' => 0,
+                'role' => 'user'
+            ]);
+
+            StudentDetail::create([]);
+
+            return view('dashboard.student-additional-details');
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Something went wrong!');
         }
     }
 }
