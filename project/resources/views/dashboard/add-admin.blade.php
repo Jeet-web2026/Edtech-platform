@@ -85,7 +85,7 @@
                 </div>
             </div>
             <input type="number" value="{{ $userId }}" class="hidden" name="parent_id">
-            <textarea name="address" id="address" class="h-20 w-full border mt-4 rounded outline-none px-2 py-1 border-gray-300"></textarea>
+            <textarea name="address" id="address" class="h-20 w-full border mt-4 rounded outline-none px-2 py-1 border-gray-300">{{ old('address') }}</textarea>
             @error('address')
             <span class="text-red-600">{{ $message }}</span>
             @enderror

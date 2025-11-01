@@ -63,7 +63,7 @@
                 </tr>
                 @empty
                 <tr class="bg-white border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-200">
-                    <td class="px-6 py-3 text-gray-700 text-center text-base" colspan="5">
+                    <td class="px-6 py-3 text-gray-700 text-center text-base" colspan="6">
                         Oops! No data found.
                     </td>
                 </tr>

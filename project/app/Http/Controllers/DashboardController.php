@@ -62,6 +62,16 @@ class DashboardController extends Controller
                 $user = User::find($userId);
                 if (!empty($user)) {
                     $user->delete();
+                    if ($user->role === 'admin') {
+                        $adminDetail = Admindetail::where('user_id', $userId)->first();
+
+                        if ($adminDetail) {
+                            if (!empty($adminDetail->profile) && file_exists(public_path('admin-profiles/' . $adminDetail->profile))) {
+                                unlink(public_path('admin-profiles/' . $adminDetail->profile));
+                            }
+                            $adminDetail->delete();
+                        }
+                    }
                     return back()->with('success', 'Data deleted successfully!');
                 }
                 return back()->with('error', 'Data not found!');
