@@ -9,4 +9,6 @@ Route::controller(DashboardController::class)->prefix('authenticated/dashboard')
     Route::post('change-status/{type}/{id}', 'ChangeStatus')->name('change-status');
     Route::get('admin/edit/{id}', 'EditAdmin')->name('edit-admin');
     Route::post('enrollment', 'EnrollmentStart')->name('enrollment-start');
+    Route::get('student-additional-details/{id}', 'Studentadditionaldetails')->name('student.additional-details');
+    Route::post('enrollment-additional-details-save', 'StudentadditionaldetailsSave')->name('enrollment-additional-details');
 });

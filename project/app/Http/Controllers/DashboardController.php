@@ -26,7 +26,7 @@ class DashboardController extends Controller
                 break;
 
             case 'students':
-                $students = User::where('role', 'user')
+                $students = User::where('role', 'student')
                     ->paginate(5);
                 return view('dashboard.manage-students', compact('students'));
                 break;
@@ -40,7 +40,9 @@ class DashboardController extends Controller
                 break;
 
             case 'enrollments':
-                return view('dashboard.manage-enrollments');
+                $students = User::where('role', 'user')
+                    ->paginate(5);
+                return view('dashboard.manage-enrollments', compact('students'));
                 break;
 
             case 'fees':
@@ -208,7 +210,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function EnrollmentStart(StartenrollmentRequest $request): View|RedirectResponse
+    public function EnrollmentStart(StartenrollmentRequest $request): RedirectResponse
     {
         try {
             $user = User::create([
@@ -220,11 +222,31 @@ class DashboardController extends Controller
                 'role' => 'user'
             ]);
 
-            StudentDetail::create([]);
+            $studentdetail = StudentDetail::create([
+                'user_id' => $user->id,
+                'parent_id' => $request->input('parent_id'),
+                'contact_number' => $request->input('mob'),
+                'last_qualification' => $request->input('last_qualification'),
+                'last_qualification_organisation_name' => $request->input('last_qualification_organisation'),
+                'class_xth_percentage' => $request->input('class_tenth_percentage'),
+                'class_xth_organisation_name' => $request->input('class_tenth_organisation_name'),
+                'class_xiith_percentage' => $request->input('class_twelveth_percentage'),
+                'class_xiith_organisation_name' => $request->input('class_twelveth_organisation_name'),
+            ]);
 
-            return view('dashboard.student-additional-details');
+            return redirect()->route('student.additional-details', $studentdetail->id)->with('success', 'Student primary details saved!');
         } catch (\Throwable $th) {
+            Log::error('Student creation failed', [
+                'error' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+            ]);
             return back()->with('error', 'Something went wrong!');
         }
+    }
+
+    public function Studentadditionaldetails(int $id): View
+    {
+        $studtid = $id;
+        return view('dashboard.student-additional-details', compact('studtid'));
     }
 }

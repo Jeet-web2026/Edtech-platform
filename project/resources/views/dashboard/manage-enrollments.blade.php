@@ -1,3 +1,2 @@
-<div>
-    <!-- Be present above all else. - Naval Ravikant -->
-</div>
+<x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Enrollments">
+</x-BaseComponent>
