@@ -16,13 +16,13 @@ class DashboardController extends Controller
     {
         switch ($type) {
             case 'admins':
-                $admins = User::where('type', 'admin')
+                $admins = User::where('role', 'admin')
                     ->paginate(5);
                 return view('dashboard.manage-admins', compact('admins'));
                 break;
 
             case 'students':
-                $students = User::where('type', 'user')
+                $students = User::where('role', 'user')
                     ->paginate(5);
                 return view('dashboard.manage-students', compact('students'));
                 break;
@@ -94,20 +94,19 @@ class DashboardController extends Controller
 
     public function AddAdmin(SaveadminRequest $request): RedirectResponse
     {
-        DB::transaction();
         try {
-            User::create([
-                'first_name' => $this->getFirstName($request),
-                'last_name' => $this->getLastName($request),
-                'password' => bcrypt($request->input('password')),
-                'role' => 'admin',
-            ]);
-
-            DB::commit();
+            DB::transaction(function () use ($request) {
+                User::create([
+                    'first_name' => $this->getFirstName($request),
+                    'last_name' => $this->getLastName($request),
+                    'password' => bcrypt($request->input('password')),
+                    'email' => $request->input('email'),
+                    'role' => 'admin',
+                ]);
+            });
 
             return back()->with('success', 'Admin created successfully!');
         } catch (\Throwable $th) {
-            DB::rollBack();
             Log::error('Admin creation failed', [
                 'error' => $th->getMessage(),
                 'trace' => $th->getTraceAsString(),
@@ -116,6 +115,7 @@ class DashboardController extends Controller
             return back()->with('error', 'Something went wrong while creating admin.');
         }
     }
+
 
     protected function uploadProfile($request): ?string
     {

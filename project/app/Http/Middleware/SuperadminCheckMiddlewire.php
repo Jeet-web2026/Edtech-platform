@@ -17,7 +17,7 @@ class SuperadminCheckMiddlewire
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            if (Auth::user()->type === 'superadmin') {
+            if (Auth::user()->role === 'superadmin') {
                 return $next($request);
             }
             return redirect()->back()->with('error', 'Access denied!');

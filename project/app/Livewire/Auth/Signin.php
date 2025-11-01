@@ -20,7 +20,7 @@ class Signin extends Component
     {
         $this->validate();
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            return redirect()->route('dashboard', ['type' => Auth::user()->type]);
+            return redirect()->route('dashboard', ['type' => Auth::user()->role]);
         } else {
             session()->flash('error', "Invalid credentials. Please try again.");
         }

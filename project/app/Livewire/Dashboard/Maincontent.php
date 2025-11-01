@@ -9,7 +9,7 @@ class Maincontent extends Component
 {
     public function render()
     {
-        $adminCount = User::where('type', 'admin')->count();
+        $adminCount = User::where('role', 'admin')->count();
         return view('livewire.dashboard.maincontent', compact('adminCount'));
     }
 }

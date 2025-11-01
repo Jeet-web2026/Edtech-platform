@@ -3,14 +3,86 @@
         <form action="{{ route('save-admin') }}" method="post" class="max-w-4xl mx-auto bg-gray-50 p-8 rounded shadow" enctype="multipart/form-data">
             @csrf
             <div class="grid grid-col-1 lg:grid-cols-2 gap-2.5">
-                <x-Input type="text" labelname="Name" class="border-gray-300" name="name" />
-                <x-Input type="email" labelname="Email address" class="border-gray-300" name="email" />
-                <x-Input type="text" labelname="Mobile number" class="border-gray-300" name="mob" />
-                <x-Input type="text" labelname="Aadhaar number" class="border-gray-300" name="aadhaar" />
-                <x-Input type="file" labelname="Profile" class="border-gray-300" name="profile" />
-                <x-Input type="password" labelname="Password" class="border-gray-300" name="password" />
-                <x-Input type="date" labelname="Valid from" class="border-gray-300" name="valid-from" />
-                <x-Input type="date" labelname="Valid to" class="border-gray-300" name="valid-to" />
+                <div class="flex flex-col gap-1.5">
+                    <label for="name">Name</label>
+                    <input
+                        name="name" id="name"
+                        type="text"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('name') }}">
+                    @error('name')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="email">Email</label>
+                    <input
+                        name="email" id="email"
+                        type="email"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('email') }}">
+                    @error('email')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="mob">Contact no.</label>
+                    <input
+                        name="mob" id="mob"
+                        type="tel"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('mob') }}">
+                    @error('mob')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="aadhaar">Aadhaar</label>
+                    <input
+                        name="aadhaar" id="aadhaar"
+                        type="number"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('aadhaar') }}">
+                    @error('aadhaar')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="profile">Profile</label>
+                    <input
+                        name="profile" id="profile"
+                        type="file" accept=".jpg,.jpeg,.png"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('profile') }}">
+                    @error('profile')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="password">Password</label>
+                    <input
+                        name="password" id="password"
+                        type="password"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('password') }}">
+                    @error('password')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="valid_from">Valid from</label>
+                    <input
+                        name="valid_from" id="valid_from"
+                        type="date"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('valid_from') }}">
+                    @error('valid_from')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="valid_to">Valid to</label>
+                    <input
+                        name="valid_to" id="valid_to"
+                        type="date"
+                        class="border outline-none px-2 py-1 rounded border-gray-300" value="{{ old('valid_to') }}">
+                    @error('valid_to')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <input type="number" value="{{ $userId }}" class="hidden" name="parent_id">
             <textarea name="address" id="address" class="h-20 w-full border mt-4 rounded outline-none px-2 py-1 border-gray-300"></textarea>

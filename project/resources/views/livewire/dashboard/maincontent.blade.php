@@ -2,7 +2,7 @@
     <main class="pt-20 bg-gray-50 h-screen w-full px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
             <div class="shadow p-5 border border-gray-200 grid grid-cols-1 lg:grid-cols-2 rounded-lg gap-3 bg-yellow-50">
-                @if(Auth::user()->type == 'superadmin')
+                @if(Auth::user()->role == 'superadmin')
                 <div class="flex flex-col gap-2 border-r">
                     <h3 class="font-medium text-lg">
                         <span class="bg-red-200 me-1 px-1.5 py-1 text-red-500 rounded-full"><i class="ri-map-pin-user-line"></i></span>
@@ -10,7 +10,7 @@
                     </h3>
                     <h2 class="font-medium text-2xl ms-2.5">{{ $adminCount }}</h2>
                 </div>
-                @elseif(Auth::user()->type == 'admin')
+                @elseif(Auth::user()->role == 'admin')
                 <div class="flex flex-col gap-2 border-r">
                     <h3 class="font-medium text-lg">
                         <span class="bg-red-200 me-1 px-1.5 py-1 text-red-500 rounded-full"><i class="ri-map-pin-user-line"></i></span>
