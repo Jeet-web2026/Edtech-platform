@@ -46,7 +46,7 @@
                         </span>
                         Total Enrollments
                     </h3>
-                    <h2 class="font-medium text-2xl ms-2.5">0</h2>
+                    <h2 class="font-medium text-2xl ms-2.5">{{ $enrollmentsCount }}</h2>
                 </div>
             </div>
         </div>

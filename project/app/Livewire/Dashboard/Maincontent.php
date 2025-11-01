@@ -10,6 +10,7 @@ class Maincontent extends Component
     public function render()
     {
         $adminCount = User::where('role', 'admin')->count();
-        return view('livewire.dashboard.maincontent', compact('adminCount'));
+        $enrollmentsCount = User::where('role', 'user')->count();
+        return view('livewire.dashboard.maincontent', compact('adminCount', 'enrollmentsCount'));
     }
 }
