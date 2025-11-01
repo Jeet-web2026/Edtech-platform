@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveadminRequest;
+use App\Models\Admindetail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -96,12 +97,23 @@ class DashboardController extends Controller
     {
         try {
             DB::transaction(function () use ($request) {
-                User::create([
+                $admin = User::create([
                     'first_name' => $this->getFirstName($request),
                     'last_name' => $this->getLastName($request),
                     'password' => bcrypt($request->input('password')),
                     'email' => $request->input('email'),
                     'role' => 'admin',
+                ]);
+
+                Admindetail::create([
+                    'user_id' => $admin->id,
+                    'mob' => $request->input('mob'),
+                    'aadhaar' => $request->input('aadhaar'),
+                    'parent_id' => $request->input('parent_id'),
+                    'profile' => $this->uploadProfile($request),
+                    'valid_from' => $request->input('valid_from'),
+                    'valid_to' => $request->input('valid_to'),
+                    'address' => $request->input('address'),
                 ]);
             });
 
@@ -116,11 +128,10 @@ class DashboardController extends Controller
         }
     }
 
-
     protected function uploadProfile($request): ?string
     {
         if ($request->hasFile('profile')) {
-            return $request->file('profile')->store('profiles', 'public');
+            return $request->file('profile')->store('admin-profiles', 'public');
         }
         return null;
     }
@@ -139,5 +150,24 @@ class DashboardController extends Controller
         $parts = preg_split('/\s+/', $fullName);
 
         return count($parts) > 1 ? implode(' ', array_slice($parts, 1)) : '';
+    }
+
+    public function ChangeStatus(string $type, int $id): RedirectResponse
+    {
+        switch ($type) {
+            case 'admin':
+                $admin = User::find($id);
+                if (!empty($admin) && $admin->role === 'admin') {
+                    $admin->is_active = $admin->is_active == 1 ? 0 : 1;
+                    $admin->save();
+                    return back()->with('success', 'Status changed successfully!');
+                }
+                return back()->with('error', 'Admin not found!');
+                break;
+
+            default:
+                return back()->with('error', 'Something went wrong!');
+                break;
+        }
     }
 }

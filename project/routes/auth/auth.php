@@ -12,7 +12,7 @@ Route::prefix('auth')->group(function () {
     Route::get('signin', Signin::class)->name('login');
 });
 
-Route::prefix('authenticated')->middleware('auth', 'throttle:15,1')->group(function () {
+Route::prefix('authenticated')->middleware('auth', 'throttle:30,1')->group(function () {
     Route::get('dashboard/{type}', DashboardIndex::class)->name('dashboard');
     Route::prefix('dashboard/manage')->middleware('adminrole')->group(function () {
         Route::controller(DashboardController::class)->group(function () {
