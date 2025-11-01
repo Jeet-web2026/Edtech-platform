@@ -9,10 +9,10 @@
             <thead class="text-base font-medium text-blue-900 uppercase">
                 <tr>
                     <th scope="col" class="px-6 py-2 border-r border-gray-200">
-                        Name
+                        Profile
                     </th>
-                    <th scope="col" class="px-6 py-2 border-r border-gray-200 text-center">
-                        Status
+                    <th scope="col" class="px-6 py-2 border-r border-gray-200">
+                        Name
                     </th>
                     <th scope="col" class="px-6 py-2 border-r border-gray-200 text-center">
                         Email ID
@@ -28,31 +28,28 @@
             <tbody>
                 @forelse($admins as $admin)
                 <tr class="bg-white border-b border-gray-200 hover:bg-gray-100 duration-300 transition dark:hover:bg-gray-100">
+                    <td class="px-6 py-2 border-r border-gray-200 text-sm font-medium text-center">
+                        <img src="{{ asset( 'storage/' . $admin->adminDetails->profile ?? '' ) }}" alt="{{ $admin->first_name . '-' . $admin->last_name }}" class="h-15 rounded mx-auto">
+                    </td>
                     <th scope="row" class="px-6 py-3 text-sm font-medium text-black whitespace-nowrap border-r border-gray-200">
                         {{ $admin->first_name . ' ' . $admin->last_name }}
                     </th>
-                    <td class="px-6 py-2 border-r border-gray-200 text-sm font-medium text-center">
-                        <label class="inline-flex items-center cursor-pointer">
-                            <form method="post" action="{{ route('change-status', ['type' => 'admin', 'id' => $admin->id ]) }}">
-                                @csrf
-                                <input type="checkbox" onchange="this.form.submit()" {{ $admin->is_active ? 'checked' : '1' ?? '' }} value="1" class="sr-only peer">
-                                <div class="relative w-7 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2.5px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                            </form>
-                        </label>
-                    </td>
                     <td class="px-6 py-2 border-r border-gray-200 text-center text-sm font-medium">
                         {{ $admin->email }}
                     </td>
-                    <td class="px-6 py-2 text-sm border-r border-gray-200 font-medium">
-                        x
+                    <td class="px-6 py-2 text-sm border-r border-gray-200 font-medium text-center">
+                        {{ date('d-m-Y', strtotime($admin->adminDetails->valid_from)) }} to {{ date('d-m-Y', strtotime($admin->adminDetails->valid_to)) }}
                     </td>
-                    <td class="px-6 py-2 flex flex-row items-center justify-center gap-2">
+                    <td class="px-6 pt-5 flex flex-row items-center justify-center gap-2">
                         <a href="#" class="text-sm border rounded p-1 px-2 font-medium text-blue-600 dark:text-blue-500 hover:bg-blue-600 hover:text-white transition duration-300">
                             <i class="ri-edit-line"></i>
                         </a>
-                        <a href="" class="text-sm border rounded p-1 px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:bg-yellow-600 hover:text-white transition duration-300">
-                            <i class="ri-error-warning-line"></i>
-                        </a>
+                        <form method="post" action="{{ route('change-status', ['type' => $admin->role, 'id' => $admin->id ]) }}">
+                            @csrf
+                            <button type="submit" class="text-sm border rounded p-1 px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:bg-yellow-600 hover:text-white transition duration-300 cursor-pointer">
+                                <i class="ri-error-warning-line"></i>
+                            </button>
+                        </form>
                         <a href="{{ route('action', ['type' => 'delete', 'userId' => $admin->id]) }}" class="text-sm border rounded p-1 px-2 font-medium text-red-600 dark:text-red-500 hover:bg-red-600 hover:text-white transition duration-300">
                             <i class="ri-delete-bin-5-line"></i>
                         </a>

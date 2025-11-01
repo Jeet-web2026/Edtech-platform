@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         switch ($type) {
             case 'admins':
-                $admins = User::where('role', 'admin')
+                $admins = User::with('adminDetails')->where('role', 'admin')
                     ->paginate(5);
                 return view('dashboard.manage-admins', compact('admins'));
                 break;

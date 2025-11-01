@@ -16,7 +16,7 @@
                         <span class="bg-red-200 me-1 px-1.5 py-1 text-red-500 rounded-full"><i class="ri-map-pin-user-line"></i></span>
                         Status
                     </h3>
-                    <h2 class="font-medium text-2xl ms-2.5">Active</h2>
+                    <h2 class="font-medium text-2xl ms-2.5 {{ Auth::user()->is_active == 0 ? 'text-red-600' : 'text-green-600' }}">{{ Auth::user()->is_active == 0 ? 'Inactive' : 'Active' }}</h2>
                 </div>
                 @endif
                 <div class="flex flex-col gap-2">

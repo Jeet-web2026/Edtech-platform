@@ -19,6 +19,8 @@ class SuperadminCheckMiddlewire
         if (Auth::check()) {
             if (Auth::user()->role === 'superadmin') {
                 return $next($request);
+            } elseif (Auth::user()->role === 'admin' && Auth::user()->is_active == 1) {
+                return $next($request);
             }
             return redirect()->back()->with('error', 'Access denied!');
         }

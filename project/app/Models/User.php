@@ -33,4 +33,9 @@ class User extends Authenticatable
             'is_active' => 'boolean',
         ];
     }
+
+    public function adminDetails()
+    {
+        return $this->hasOne(Admindetail::class, 'user_id', 'id');
+    }
 }

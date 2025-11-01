@@ -28,7 +28,7 @@
                 </a>
             </li>
             @endif
-            @if(Auth::user()->role !== 'user')
+            @if(Auth::user()->role === 'superadmin')
             <li class="w-full">
                 <a href="{{ route('manage', 'pages') }}" wire:navigate class="p-3 text-base font-medium {{ request()->route('role') === 'pages' ? 'bg-blue-500 text-white' : 'bg-blue-50 text-blue-800' }} w-full flex flex-row items-center gap-2 border-b border-white">
                     <i class="ri-settings-line text-lg"></i>
@@ -56,14 +56,6 @@
                     Fees status
                 </a>
             </li>
-            @if(Auth::user()->role !== 'user')
-            <li class="w-full">
-                <a href="{{ route('manage', 'loginRequest') }}" wire:navigate class="p-3 text-base font-medium {{ request()->route('role') === 'fees' ? 'bg-blue-500 text-white' : 'bg-blue-50 text-blue-800' }} w-full flex flex-row items-center gap-2 border-b border-white">
-                    <i class="ri-rotate-lock-line text-lg"></i>
-                    Login request
-                </a>
-            </li>
-            @endif
         </ul>
     </nav>
 </div>
