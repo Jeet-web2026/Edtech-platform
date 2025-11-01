@@ -19,6 +19,7 @@ class StudentDetail extends Model
         'class_xiith_organisation_name',
         'payment_status',
         'course_name',
-        'organisation_name'
+        'organisation_name',
+        'profile',
     ];
 }

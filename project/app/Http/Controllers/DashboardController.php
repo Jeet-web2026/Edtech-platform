@@ -40,7 +40,7 @@ class DashboardController extends Controller
                 break;
 
             case 'enrollments':
-                $students = User::where('role', 'user')
+                $students = User::with('studentDetails')->where('role', 'user')
                     ->paginate(5);
                 return view('dashboard.manage-enrollments', compact('students'));
                 break;
@@ -70,6 +70,14 @@ class DashboardController extends Controller
                                 unlink(public_path('admin-profiles/' . $adminDetail->profile));
                             }
                             $adminDetail->delete();
+                        }
+                    } elseif ($user->role === 'user' || $user->role === 'student') {
+                        $studentDetail = StudentDetail::where('user_id', $userId)->first();
+                        if ($studentDetail) {
+                            if (!empty($studentDetail->profile) && file_exists(public_path('student-profiles/' . $studentDetail->profile))) {
+                                unlink(public_path('student-profiles/' . $studentDetail->profile));
+                            }
+                            $studentDetail->delete();
                         }
                     }
                     return back()->with('success', 'Data deleted successfully!');

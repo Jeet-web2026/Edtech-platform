@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('payment_status')->default(false);
             $table->string('course_name')->nullable();
             $table->string('organisation_name')->nullable();
+            $table->string('profile')->nullable();
             $table->timestamps();
         });
     }
