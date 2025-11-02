@@ -1,3 +1,2 @@
-<div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-</div>
+<x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Courses">
+</x-BaseComponent>

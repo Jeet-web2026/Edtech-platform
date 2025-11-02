@@ -1,6 +1,9 @@
 <x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Admins">
     <div class="relative overflow-x-auto">
-        <div class="flex justify-end items-end mb-3">
+        <div class="flex justify-between items-end mb-3">
+            <div class="border px-2 py-1 rounded bg-white border-gray-300">
+                {{ $admins->links() }}
+            </div>
             <a href="{{ route('action', ['type' => 'add', 'userId' => Auth::id(), 'addType' => 'admin']) }}" wire:navigate class="py-2 px-4 bg-blue-700 text-white rounded">
                 <i class="ri-add-circle-line me-1"></i>Add new
             </a>
@@ -68,7 +71,6 @@
                     </td>
                 </tr>
                 @endforelse
-                {{ $admins->links() }}
             </tbody>
         </table>
     </div>

@@ -7,11 +7,13 @@ use App\Http\Requests\SaveadminRequest;
 use App\Http\Requests\StartenrollmentRequest;
 use App\Http\Requests\StudentadditionaldetailsRequest;
 use App\Models\Admindetail;
+use App\Models\StudentadditionalDetail;
 use App\Models\StudentDetail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -271,7 +273,29 @@ class DashboardController extends Controller
 
     public function StudentadditionaldetailsSave(StudentadditionaldetailsRequest $request): RedirectResponse
     {
-        return back()->with('success', 'Student additional details saved successfully!');
+        try {
+            StudentadditionalDetail::create([
+                'user_id' => $request->input('user_id'),
+                'parent_id' => Auth::id(),
+                'date_of_birth' => $request->input('date_of_birth'),
+                'bld_group' => $request->input('bld_group'),
+                'course_name' => $request->input('course_name'),
+                'admission_fees' => $request->input('admission_fees'),
+                'semester_fees' => $request->input('semester_fees'),
+                'total_semester' => $request->input('total_semester'),
+                'examination_fees' => $request->input('examination_fees'),
+                'total_fee' => $request->input('total_fee'),
+                'emergency_contact' => $request->input('emergency_contact'),
+                'emergency_contact_person' => $request->input('emergency_contact_person'),
+            ]);
+            return redirect()->route('manage', 'enrollments')->with('success', 'Student additional details saved successfully!');
+        } catch (\Throwable $th) {
+            Log::error('Student aditional details creation failed', [
+                'error' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+            ]);
+            return back()->with('error', 'Something went wrong!');
+        }
     }
 
     public function ViewStudentDetails(int $id): View|RedirectResponse

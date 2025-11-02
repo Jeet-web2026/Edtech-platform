@@ -151,7 +151,7 @@
     {{--tireupcompanies--}}
     <section class="w-full">
         <div class="container mx-auto">
-            <livewire:tierupcompanies />
+            <livewire:tierupcompanies :partners="$ourPartners" />
         </div>
     </section>
     {{--tireupcompanies--}}
