@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EditadminRequest;
 use App\Http\Requests\SaveadminRequest;
 use App\Http\Requests\StartenrollmentRequest;
+use App\Http\Requests\StudentadditionaldetailsRequest;
 use App\Models\Admindetail;
 use App\Models\StudentDetail;
 use App\Models\User;
@@ -266,6 +267,11 @@ class DashboardController extends Controller
     {
         $studtid = $id;
         return view('dashboard.student-additional-details', compact('studtid'));
+    }
+
+    public function StudentadditionaldetailsSave(StudentadditionaldetailsRequest $request): RedirectResponse
+    {
+        return back()->with('success', 'Student additional details saved successfully!');
     }
 
     public function ViewStudentDetails(int $id): View|RedirectResponse
