@@ -26,7 +26,7 @@
                         </span>
                         Total Students
                     </h3>
-                    <h2 class="font-medium text-2xl ms-2">0</h2>
+                    <h2 class="font-medium text-2xl ms-2">{{ $studentsCount }}</h2>
                 </div>
             </div>
             <div class="shadow p-5 border border-gray-200 grid grid-cols-1 lg:grid-cols-2 rounded-lg gap-3 bg-red-50">
@@ -37,7 +37,7 @@
                         </span>
                         Total Courses
                     </h3>
-                    <h2 class="font-medium text-2xl ms-2.5">{{ $adminCount }}</h2>
+                    <h2 class="font-medium text-2xl ms-2.5">X</h2>
                 </div>
                 <div class="flex flex-col gap-2">
                     <h3 class="font-medium text-lg">

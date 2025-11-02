@@ -11,4 +11,6 @@ Route::controller(DashboardController::class)->prefix('authenticated/dashboard')
     Route::post('enrollment', 'EnrollmentStart')->name('enrollment-start');
     Route::get('student-additional-details/{id}', 'Studentadditionaldetails')->name('student.additional-details');
     Route::post('enrollment-additional-details-save', 'StudentadditionaldetailsSave')->name('enrollment-additional-details');
+    Route::get('view-student-details/{id}', 'ViewStudentDetails')->name('view-student-details');
+    Route::get('edit-student-details/{id}', 'EditStudentDetails')->name('edit-student-details');
 });

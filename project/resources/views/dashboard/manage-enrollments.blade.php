@@ -15,7 +15,7 @@
                     Contact number
                 </th>
                 <th scope="col" class="px-6 py-3 border-r border-gray-200 text-center">
-                    Organisation name
+                    Course name
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
                     <span>Action</span>
@@ -37,14 +37,14 @@
                 <td class="px-6 py-3 text-base border-r border-gray-400 font-medium text-center">
                     {{ $student->studentDetails->contact_number }}
                 </td>
-                <td class="px-6 py-3 text-base border-r border-gray-400 font-medium">
-
+                <td class="px-6 py-3 text-base border-r border-gray-400 font-medium text-center">
+                    X
                 </td>
                 <td class="px-6 py-3 flex flex-row items-center justify-center gap-2">
-                    <a href="#" class="text-base border rounded p-1 px-2 font-medium text-green-600 dark:text-green-500 hover:bg-green-600 hover:text-white transition duration-300">
+                    <a wire:navigate href="{{ route('view-student-details', $student->id ) }}" class="text-base border rounded p-1 px-2 font-medium text-green-600 dark:text-green-500 hover:bg-green-600 hover:text-white transition duration-300">
                         <i class="ri-eye-line"></i>
                     </a>
-                    <a href="#" class="text-base border rounded p-1 px-2 font-medium text-blue-600 dark:text-blue-500 hover:bg-blue-600 hover:text-white transition duration-300">
+                    <a wire:navigate href="{{ route('edit-student-details', $student->id ) }}" class="text-base border rounded p-1 px-2 font-medium text-blue-600 dark:text-blue-500 hover:bg-blue-600 hover:text-white transition duration-300">
                         <i class="ri-edit-line"></i>
                     </a>
                     <a href="{{ route('action', ['type' => 'delete', 'userId' => $student->id]) }}" class="text-base border rounded p-1 px-2 font-medium text-red-600 dark:text-red-500 hover:bg-red-600 hover:text-white transition duration-300">

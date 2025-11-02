@@ -267,4 +267,22 @@ class DashboardController extends Controller
         $studtid = $id;
         return view('dashboard.student-additional-details', compact('studtid'));
     }
+
+    public function ViewStudentDetails(int $id): View|RedirectResponse
+    {
+        $student = User::with('studentDetails')->find($id);
+        if (!empty($student) && $student->role === 'user') {
+            return view('dashboard.view-student-details', compact('student'));
+        }
+        return back()->with('error', 'Student not found!');
+    }
+
+    public function EditStudentDetails(int $id): View|RedirectResponse
+    {
+        $student = User::with('studentDetails')->find($id);
+        if (!empty($student) && $student->role === 'user') {
+            return view('dashboard.edit-student-details', compact('student'));
+        }
+        return back()->with('error', 'Student not found!');
+    }
 }
