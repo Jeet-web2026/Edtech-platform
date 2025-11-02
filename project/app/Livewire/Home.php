@@ -11,6 +11,7 @@ class Home extends Component
     {
         $ourPartners = User::with(['adminDetails:id,user_id,profile'])
             ->where('role', 'admin')
+            ->where('is_active', 1)
             ->select('id', 'first_name', 'last_name')
             ->get();
 
