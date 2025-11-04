@@ -22,10 +22,11 @@
         </ul>
         <div class="p-6 bg-gray-100 text-medium text-black rounded w-full active">
             <h4 class="text-xl font-semibold">Main Section</h4>
-            <form action="" method="post" class="border border-gray-300 rounded p-4 mt-4 flex flex-col gap-4 bg-white">
+            <form action="{{ route('save-page-details', 'home') }}" method="post" class="border border-gray-300 rounded p-4 mt-4 flex flex-col gap-4 bg-white" enctype="multipart/form-data">
+                @csrf
                 <div class="flex flex-col gap-2">
                     <label for="main-text" class="text-lg">Heading</label>
-                    <textarea name="main-text" id="main-text" class="border border-gray-300 outline-none rounded px-2 py-2.5 h-25">{{ old('main-text') }}</textarea>
+                    <textarea name="main-text" id="main-text" class="border border-gray-300 outline-none rounded px-2 py-2.5 h-25">{{ $HomeContent->heading }}</textarea>
                     @error('main-text')
                     <span class="text-red-600 text-sm mt-1">{{ $message }}</span>
                     @enderror
@@ -39,7 +40,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="main-color" class="text-lg">Theme color</label>
-                    <input type="color" name="main-color" id="main-color" class="border border-gray-300 outline-none rounded w-full" value="{{ old('main-color') }}">
+                    <input type="text" name="main-color" id="main-color" class="border border-gray-300 outline-none rounded px-2 py-2.5" value="{{ $HomeContent->color }}">
                     @error('main-color')
                     <span class="text-red-600 text-sm mt-1">{{ $message }}</span>
                     @enderror

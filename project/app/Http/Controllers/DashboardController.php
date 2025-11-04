@@ -7,6 +7,7 @@ use App\Http\Requests\SaveadminRequest;
 use App\Http\Requests\StartenrollmentRequest;
 use App\Http\Requests\StudentadditionaldetailsRequest;
 use App\Models\Admindetail;
+use App\Models\Homecontent;
 use App\Models\StudentadditionalDetail;
 use App\Models\StudentDetail;
 use App\Models\User;
@@ -35,7 +36,8 @@ class DashboardController extends Controller
                 break;
 
             case 'pages':
-                return view('dashboard.manage-pages');
+                $HomeContent = Homecontent::select('heading', 'image', 'color')->firstOrFail();
+                return view('dashboard.manage-pages', compact('HomeContent'));
                 break;
 
             case 'courses':
@@ -314,5 +316,48 @@ class DashboardController extends Controller
             return view('dashboard.edit-student-details', compact('student'));
         }
         return back()->with('error', 'Student not found!');
+    }
+
+    public function SavePageDetails(Request $request, string $pagename): RedirectResponse
+    {
+        switch ($pagename) {
+            case 'home':
+                $request->validate([
+                    'main-text' => 'required|min:3|string',
+                    'main-image' => 'nullable|image|mimes:jpg,png,jpeg|max:300',
+                    'main-color' => 'required'
+                ], [
+                    'main-text.required' => 'Heading is required!',
+                    'main-text.min' => 'Heading must be three characters long!',
+                    'main-image.image' => 'Image must be a valid image.',
+                    'main-image.max' => 'Image size under 300Kb.',
+                    'main-color.required' => 'Color is required!'
+                ]);
+
+                Homecontent::updateOrcreate([
+                    'id' => 1,
+                ], [
+                    'heading' => $request->input('main-text'),
+                    'image' => $this->uploadHomeImage($request),
+                    'color' => $request->input('main-color')
+                ]);
+
+                return back()->with('success', 'Data saved successfully!');
+                break;
+
+            default:
+                return back()->with('error', 'Something went wrong!');
+                break;
+        }
+        return back()->with('error', 'Something went wrong!');
+    }
+
+    protected function uploadHomeImage($request): ?string
+    {
+        $imagepath = Homecontent::first()->value('image');
+        if ($request->hasFile('main-image')) {
+            return $request->file('main-image')->store('homes', 'public');
+        }
+        return $imagepath;
     }
 }

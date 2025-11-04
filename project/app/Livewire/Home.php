@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Homecontent;
 use App\Models\User;
 use Livewire\Component;
 
@@ -15,6 +16,8 @@ class Home extends Component
             ->select('id', 'first_name', 'last_name')
             ->get();
 
-        return view('livewire.home', compact('ourPartners'));
+        $mainContent = Homecontent::select('heading', 'image', 'color')->firstOrFail();
+
+        return view('livewire.home', compact('ourPartners', 'mainContent'));
     }
 }
