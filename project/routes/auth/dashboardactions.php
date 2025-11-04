@@ -15,3 +15,5 @@ Route::controller(DashboardController::class)->prefix('authenticated/dashboard')
     Route::get('edit-student-details/{id}', 'EditStudentDetails')->name('edit-student-details');
     Route::post('save-page-details/{pagename}', 'SavePageDetails')->name('save-page-details');
 });
+
+require __DIR__ . '/courses.php';
