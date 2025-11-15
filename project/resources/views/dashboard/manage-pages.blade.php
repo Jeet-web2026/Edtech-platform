@@ -33,7 +33,10 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="main-image" class="text-lg">Image</label>
-                    <input type="file" name="main-image" id="main-image" class="border border-gray-300 outline-none rounded px-2 py-2.5" accept=".jpg,.jpeg,.png">
+                    <div class="flex w-full gap-3">
+                        <img src="{{ asset( 'storage/' . $HomeContent->image ) }}" alt="{{ $HomeContent->heading }}" class="h-20 w-35 rounded object-cover">
+                        <input type="file" name="main-image" id="main-image" class="border border-gray-300 outline-none rounded ps-2 w-full py-2.5" accept=".jpg,.jpeg,.png">
+                    </div>
                     @error('main-image')
                     <span class="text-red-600 text-sm mt-1">{{ $message }}</span>
                     @enderror
