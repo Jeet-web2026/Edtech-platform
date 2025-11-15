@@ -2,7 +2,7 @@
     <div class="md:flex">
         <ul class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
             <li>
-                <a href="javascript:void(0)" class="inline-flex items-center px-4 flex py-3 text-white bg-blue-700 rounded active w-full gap-2 items-center" id="home-tab-btn">
+                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 text-white bg-blue-700 rounded active w-full gap-2 items-center" id="home-tab-btn">
                     <i class="ri-home-9-line"></i>
                     Home
                 </a>
