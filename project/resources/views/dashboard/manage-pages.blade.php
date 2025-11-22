@@ -1,20 +1,20 @@
 <x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Pages">
     <div class="md:flex">
         <ul class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
-            <li>
-                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 text-white bg-blue-700 rounded active w-full gap-2 items-center" id="home-tab-btn">
+            <li class="text-white bg-blue-600">
+                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 rounded active w-full gap-2 items-center" id="home-tab-btn">
                     <i class="ri-home-9-line"></i>
                     Home
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 rounded text-gray-700 hover:text-gray-900 bg-gray-300 hover:bg-gray-400 w-full flex gap-2 transition-all duration-300" id="about-tab-btn">
+            <li class="text-white bg-blue-600">
+                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 rounded w-full flex gap-2" id="about-tab-btn">
                     <i class="ri-info-i"></i>
                     About
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 rounded text-gray-700 hover:text-gray-900 bg-gray-300 hover:bg-gray-400 w-full flex gap-2 transition-all duration-300" id="notification-tab-btn">
+            <li class="text-white bg-blue-600">
+                <a href="javascript:void(0)" class="inline-flex items-center px-4 py-3 rounded w-full flex gap-2" id="notification-tab-btn">
                     <i class="ri-notification-3-line"></i>
                     Notifications
                 </a>
@@ -55,9 +55,13 @@
             <div id="about-tab-content" class="hidden p-6 bg-gray-100 text-medium text-black rounded w-full">
                 <div class="bg-white p-6 rounded border border-gray-300">
                     <h4 class="text-xl font-semibold">About Section</h4>
+                    <input type="file" name="about_image" class="border border-gray-400 outline-none w-full px-2 py-1.5 rounded mt-3">
                     <textarea name="about-content" id="about-content" rows="10" class="w-full border border-gray-400 outline-0 rounded my-3 px-2 py-2"></textarea>
                     <button type="submit" class="bg-blue-700 w-full py-2 rounded cursor-pointer text-white">Save</button>
                 </div>
+            </div>
+            <div id="notifications-tab-content">
+
             </div>
         </div>
     </div>
