@@ -16,4 +16,3 @@ Route::controller(DashboardController::class)->prefix('authenticated/dashboard')
     Route::post('save-page-details/{pagename}', 'SavePageDetails')->name('save-page-details');
 });
 
-require __DIR__ . '/courses.php';

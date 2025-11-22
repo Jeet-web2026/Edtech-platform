@@ -11,3 +11,4 @@ Route::get('contact-us', Contact::class)->name('contact');
 
 // for authentication routes only
 require __DIR__ . '/auth/auth.php';
+require __DIR__ . '/auth/courses.php';

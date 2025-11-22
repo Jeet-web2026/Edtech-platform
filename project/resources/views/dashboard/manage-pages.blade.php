@@ -56,12 +56,26 @@
                 <div class="bg-white p-6 rounded border border-gray-300">
                     <h4 class="text-xl font-semibold">About Section</h4>
                     <input type="file" name="about_image" class="border border-gray-400 outline-none w-full px-2 py-1.5 rounded mt-3">
-                    <textarea name="about-content" id="about-content" rows="10" class="w-full border border-gray-400 outline-0 rounded my-3 px-2 py-2"></textarea>
+                    <textarea name="about-content" id="about-content" rows="10" class="w-full border border-gray-400 outline-0 rounded my-3 px-2 py-2" placeholder="About content here..."></textarea>
                     <button type="submit" class="bg-blue-700 w-full py-2 rounded cursor-pointer text-white">Save</button>
                 </div>
             </div>
-            <div id="notifications-tab-content">
-
+            <div id="notifications-tab-content" class="hidden p-6 bg-gray-100 text-medium text-black rounded w-full">
+                <div class="bg-white p-6 rounded border border-gray-300 flex gap-2">
+                    <div class="border-r border-gray-300 pe-3">
+                        <h4 class="text-xl font-semibold">Notifications Section</h4>
+                        <input type="file" name="about_image" class="border border-gray-400 outline-none w-full px-2 py-1.5 rounded mt-3">
+                        <textarea name="about-content" id="about-content" rows="10" class="w-full border border-gray-400 outline-0 rounded my-3 px-2 py-2" placeholder="Notification content here..."></textarea>
+                        <button type="submit" class="bg-blue-700 w-full py-2 rounded cursor-pointer text-white">Save</button>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">All Notifications</h4>
+                        <div class="border border-gray-300 px-2.5 gap-2 rounded bg-gray-50 w-full flex flex-row items-center justify-between">
+                            <p class="py-2 border-r border-gray-200 pe-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, distinctio...</p>
+                            <a href="javascript:void(0)"><i class="ri-eye-line"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
