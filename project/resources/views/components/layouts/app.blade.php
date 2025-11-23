@@ -39,18 +39,23 @@
     @if (!Str::contains(request()->path(), ['authenticated', 'auth']))
     <livewire:navbar />
     @endif
-    @if(session()->has('success'))
-    <div class="bg-green-200 text-green-800 px-4 py-2 rounded mb-4 font-medium text-sm fixed top-35 z-50 right-5 success-popup">
-        <i class="ri-checkbox-circle-line me-1 text-base"></i>{{ session('success') }}
-    </div>
-    @endif
     {{ $slot }}
     @if (!Str::contains(request()->path(), ['authenticated', 'auth']))
     <livewire:footer />
     @endif
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('extrajs')
+    @if(session()->has('error'))
+    @include('components.partials.error')
+    @endif
+    @if(session()->has('success'))
+    @include('components.partials.success')
+    @endif
+    @if($errors->any())
+    @include('components.partials.any')
+    @endif
 </body>
 
 </html>

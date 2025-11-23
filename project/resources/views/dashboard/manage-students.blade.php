@@ -1,10 +1,5 @@
 <x-BaseComponent tailwindcss="true" remixicon="true" title="Manage Students">
     <div class="relative overflow-x-auto">
-        <div class="flex justify-end items-end mb-3">
-            <a href="{{ route('action', ['type' => 'add', 'userId' => Auth::id(), 'addType' => 'student']) }}" wire:navigate class="py-2 px-4 bg-blue-700 text-white rounded">
-                <i class="ri-add-circle-line me-1"></i>Add new
-            </a>
-        </div>
         <table class="w-full text-sm text-left rtl:text-right bg-blue-300 border border-gray-200">
             <thead class="text-base font-medium text-blue-900 uppercase">
                 <tr>
